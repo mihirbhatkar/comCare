@@ -1,0 +1,86 @@
+{% extends "main/header1.html" %} {% block content %}
+{% load static %}
+<!-- this page is for notifications. if admin resolves a complaint, the user is notified via this page-->
+
+{% comment %} 
+{% if complaint %}
+{% for c in complaint %}
+{{c.resolve_msg}}---{{c.resolve_time}}---{{c.id}} <br><br>
+<br><br>{{c.id}}
+{% endfor %}
+
+
+
+<!-- if user has no notifications -->
+{% else %}
+You have no notifications
+{% endif %} {% endcomment %}
+<div class="room" style="width: 900px; height: ;
+        position: relative;
+        left: 150px;">
+    <div class="room__top">
+      <div class="room__topLeft">
+        <a href="/">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+            <title>arrow-left</title>
+            <path
+              d="M13.723 2.286l-13.723 13.714 13.719 13.714 1.616-1.611-10.96-10.96h27.625v-2.286h-27.625l10.965-10.965-1.616-1.607z"
+            ></path>
+          </svg>
+        </a>
+        <h3>Notification Bar</h3>
+      </div>
+
+      <div class="room__topRight">
+
+      </div>
+
+    </div>
+    <div class="room__box scroll">
+      <div class="room__header scroll">
+        <div class="room__info">
+          <h3>Your Issues response portal</h3>
+          {% comment %} <span>3 days ago</span> {% endcomment %}
+        </div>
+        <div class="room__hosted">
+          <p>Hosted By Us</p>
+        </div>
+        <div class="room__details">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi, tenetur laudantium? Dicta repellendus.
+        </div>
+      </div>
+
+      <div class="room__conversation">
+        <div class="threads scroll">
+          {% for c in complaint %}
+          <div class="thread">
+            <div class="thread__top">
+              <div class="thread__author">
+                <a href="#" class="thread__authorInfo">
+                  <div class="avatar avatar--small">
+                    <img src="{% static 'images/avatar.svg' %}" />
+                  </div>
+                  <span>Admin</span>
+                </a>
+                <span class="thread__date">{{c.resolve_time}}</span>
+              </div>
+              
+            </div>
+            <div class="thread__details">
+                <p><strong>{{c.subject}}</strong></p>
+                {{c.resolve_msg}}
+            </div>
+          </div>
+          {% endfor %}
+
+          
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <!-- Room End -->
+
+{% endblock %}
+

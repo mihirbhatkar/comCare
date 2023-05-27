@@ -1,0 +1,53 @@
+{% extends "sec/header.html" %} {% block content %} {% csrf_token %}
+<br /><br />
+<div class="card">
+  <div class="card-body">
+    <h6>Name: {{com.name}}</h6>
+  </div>
+</div><br>
+<div class="card">
+  <div class="card-body">
+    <h6>Flat Number: {{com.flat_no}}</h6>
+  </div>
+</div><br>
+<div class="card">
+    <span class="card-body">
+      <h6>Published Date and Time: {{com.date}}</h6>
+    </span>
+  </div><br>
+<div class="card">
+  <span class="card-body">
+    <h5>Subject: {{com.subject}}</h5>
+  </span>
+</div><br>
+<div class="card">
+  <span class="card-body">
+    <h5>Details:</h5>
+    <br />
+    {{com.content}}
+  </span>
+</div><br>
+<div>
+  <a
+    class="btn"
+    style="background-color: blanchedalmond; color: brown"
+    href="{% url 'sec:complaints' %}"
+    >Back</a
+  >
+  <!-- <a
+    class="btn"
+    style="background-color: blanchedalmond; color: brown"
+    href="/admin/complaints/c/{{com.id}}"
+    >Delete</a
+  > -->
+  <br /><br />
+</div>
+{% if com.status == 'n' %}
+<a
+    class="btn"
+    style="background-color: blanchedalmond; color: brown"
+    href="/admin/complaints/resolve/{{com.id}}"
+    >Resolve</a
+  ><br><br>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "sec/header.html" %} {% block content %}
+<h4 style="text-align:center;">Resolve Complaint</h4>
+<form action="" method="post">
+    {% csrf_token %}
+    <p><label style="font-weight: bolder;" for="id_resolve_msg">Resolve msg:</label> <textarea class="form-control" name="resolve_msg" cols="40" rows="10" required="" id="id_resolve_msg"></textarea></p>
+    <button type="submit" class="btn" style="background-color: blanchedalmond; color: brown;">Submit</button>
+</form>
+
+{% endblock %}

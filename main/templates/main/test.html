@@ -1,0 +1,70 @@
+<html><head>
+
+    <link rel="stylesheet" href="/static/tiny/css/prism">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="/static/main/css/materialize.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+          $('select').formSelect();
+      })
+    </script>
+
+</head>
+
+<body>
+
+
+<nav>
+    <div class="nav-wrapper #1976d2 blue darken-2">
+        <a href="/" class="brand-logo">E-House Care</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/">Home</a></li>
+
+
+
+                <li><a href="/makenotice">Make Notice</a></li>
+
+
+              <li><a href="/noticeboard">Notice Board</a></li>
+              <li><a href="/service">Services</a></li>
+              <li><a href="/searchbill">Bills</a></li>
+              <li><a href="/complaint">Complaint Box</a></li>
+              <li><a href="/staff">Society Staff</a></li>
+              <li><a href="/logout">Logout</a></li>
+
+        </ul>
+    </div>
+</nav>
+<style media="screen">
+  a.brand-logo{
+    margin-left: 15px;
+  }
+</style>
+
+
+
+    <br><br>
+    <div class="container">
+<h1 style="text-align:center;">Services</h1>
+<form role="form" action="" method="post">
+    <input type="hidden" name="csrfmiddlewaretoken" value="HmNonmsaiUpeCTXvHljngc0VY3LxDmpN7Vd0btEccnJiHt7elWirz3j3bEkhZK41">
+    <p><label for="id_service_name">Service name:</label> <select name="service_name" id="id_service_name">
+  <option value="1">Electrician</option>
+
+  <option value="2">Internet Service Provider</option>
+
+  <option value="3">Plumber</option>
+
+</select></p>
+<p><label for="id_client" class="">Please enter your Flat Number:</label> <input type="text" name="client" required="" id="id_client"></p>
+<p><label for="id_service_details" class="">Specify your request:</label> <textarea name="service_details" cols="40" rows="10" required="" id="id_service_details"></textarea></p>
+    <button type="submit" class="btn" style="background-color: blanchedalmond; color: brown;">Request</button>
+</form>
+
+</div>
+
+
+<script src="/static/tinymce/js/prism.js"></script>
+</body></html>

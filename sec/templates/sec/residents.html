@@ -1,0 +1,34 @@
+{% extends "sec/header.html" %} {% block content %}
+{% csrf_token %}
+<h4 style="text-align:center;">Resident's Records</h4>
+<table class="table">
+    <tr class="hmm">
+      <td>Name</td>
+      <td>Email</td>
+      <td>Flat Number</td>
+      <td>Status</td>
+      <td> </td>
+      <!-- <td> </td> -->
+    </tr>
+    {% for p in prof %}
+    <tr>
+      <td>{{p.name}}</td>
+      <td>{{p.email}}</td>
+      <td>{{p.flat_no}}</td>
+      <td>{% if p.status == 'r' %}Resident{% elif p.status == 's' %}Staff{% elif p.status == 'a' %}Superuser{% endif %}</td>
+      <td><a href="{% url 'sec:showprof' p.id %}">View</a></td>
+      <!-- <td><a href="{% url 'sec:deleteuser' p.id %}">Delete</a></td> -->
+    </tr>
+    {% endfor %}
+  </table>
+  <br><br>
+  <!-- <div style="text-align: center;">
+    <a class="btn" style='background-color: blanchedalmond; color: brown;' href="{% url 'sec:register' %}">CREATE NEW USER</a>
+  </div> -->
+  <style>
+    .hmm{
+      font-weight: bold;
+    }
+  </style>
+  {% endblock %}
+  

@@ -1,0 +1,12 @@
+{% extends "sec/header.html" %} {% block content %}
+<h3 style="text-align: center;">Register New Visitor</h3>
+<form action="" method="post">
+    {% csrf_token %} 
+<p><label style="font-weight: bolder;" for="id_visitor_name">Visitor name:</label> <input class="form-control" type="text" name="visitor_name" maxlength="100" required="" id="id_visitor_name"></p>
+<p><label style="font-weight: bolder;" for="id_visitor_phone">Visitor phone:</label> <input class="form-control" type="number" name="visitor_phone" required="" id="id_visitor_phone"></p>
+<p><label style="font-weight: bolder;" for="id_visiting_flat">Visiting flat:</label> <input class="form-control" type="text" name="visiting_flat" maxlength="100" required="" id="id_visiting_flat"></p>
+<p><label style="font-weight: bolder;" for="id_visiting_date">Visiting date:  </label> <input class="datepicker" type="date" name="visiting_date" required="" id="id_visiting_date"></p>
+<p><label style="font-weight: bolder;" for="id_visiting_time">Visiting time:  </label> <input class="timepicker" type="time" name="visiting_time" required="" id="id_visiting_time"></p><br>
+    <button type="submit" class="btn" style="background-color: blanchedalmond; color: brown;">Submit</button><br>
+</form>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "main/header1.html" %} 
+{% block content %}
+{% load static %}
+
+  <body>
+    <main class="layout layout--3">
+      <div class="container">
+
+        {% include 'main/includes/sidepanel.html' %}
+        <div class="roomList__header" style="
+        margin:0; 
+        position: relative;
+        right: 0px;">
+        <div style="margin:0; width:800px;" >
+        <h2 style="text-align: center;">Society Staff</h2><br>
+        <div class="container" style="">
+
+
+    
+            {% for member in staff %}
+            <div class="card" style=" margin: 30px; width: 30rem; float: left; background-color: #3f4156; border-radius: 10px;">
+              <img class="card-img-top" src="{{ member.image.url }}" alt="Card image cap" style="
+              width: 300px;
+              height: 200px;">
+              <div class="card-body">
+                <h2 class="card-title" style="text-align:center;">{{ member.designation }}</h2>
+                <em>
+                <div class="card-content">
+                  <p style="text-align:center;">
+                    <h5 style="text-align:center;">{{ member.staff_name }}</h5>
+                    <h6 style="text-align:center;">Phone Number: {{ member.staff_phone }}</h6>
+                    <h6 style="text-align:center;">Email: {{ member.staff_email }}</h6>
+                    <p class="card-text" style="text-align:center;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </p>
+                </div>
+              </em>
+              </div>
+            </div>
+            
+              {% comment %} <div class="col s12 m7">
+                <div class="card">
+                  <div class="card-image">
+                    <img src="{{ member.image.url }}">
+                    <span class="card-title"><b>{{ member.designation }}</b></span>
+                  </div>
+                  <div class="card-content">
+                    <p style="text-align:center;">
+                      <h5 style="text-align:center;">{{ member.staff_name }}</h5>
+                      <h6 style="text-align:center;">Phone Number: {{ member.staff_phone }}</h6>
+                      <h6 style="text-align:center;">Email: {{ member.staff_email }}</h6>
+                      {{ member.about }}
+                    </p>
+                  </div>
+                </div>
+              </div> {% endcomment %}
+              {% endfor %}
+            
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+{% endblock %}  

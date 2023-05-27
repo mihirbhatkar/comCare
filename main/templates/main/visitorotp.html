@@ -1,0 +1,9 @@
+{% extends "sec/header.html" %} {% block content %}
+<h3 style="text-align: center;">Enter the OTP sent to the mobile number</h3>
+
+<form role="form" action="" method="post">
+    {% csrf_token %}
+    <p><label style="font-weight: bolder;" for="id_otp">Enter the OTP:</label> <input class="form-control" type="text" name="otp" required="" id="id_otp"></p>
+    <button type="submit" class="btn" style='background-color: blanchedalmond; color: brown;'>Submit</button>
+</form>
+{% endblock %}

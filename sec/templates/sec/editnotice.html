@@ -1,0 +1,17 @@
+{% extends "sec/header.html" %} {% block content %}
+<h3 style="text-align:center;">Edit Notice</h3>
+<form role="form" action="" method="post">
+    <!-- {{form.as_p}} -->
+    {% csrf_token %}
+<p><label style="font-weight: bolder;" for="id_header_notice">Subject:</label> <input class="form-control" type="text" value="{{notice.header_notice}}" name="header_notice" required="" id="id_header_notice"></p>
+<p><label style="font-weight: bolder;" for="id_details_notice">Details notice:</label> <textarea class="form-control" name="details_notice" cols="40" rows="10" required="" id="id_details_notice">{{notice.details_notice}}</textarea></p>
+<p><label style="font-weight: bolder;" for="id_showflag">Status:</label> <select class="form-control" name="showflag" id="id_showflag">
+  <option value="y">Show</option>
+
+  <option value="n">Hide</option>
+
+</select></p>
+    <button type="submit" class="btn" style="background-color: blanchedalmond; color: brown;">Save Changes</button><br>
+</form>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "sec/header.html" %} {% block content %}
+<h5 style="text-align: center;">Pending Bills</h5>
+  <table class="table">
+      <tr class="hmm" style="font-weight: bolder;">
+        <td>Name</td>
+        <td>Flat Number</td>
+        <td>Bill ID</td>
+        <td>Publish Date</td>
+        <td>Due Date</td>
+        <td></td>
+        <!-- <td> </td> -->
+      </tr>
+      {% for b in pending %}
+      
+      <tr>
+        <td>{% for p in profile %}
+          {% if p.user == b.user %}
+        {{p.name}}
+      {% endif %}
+    {% endfor %}</td>
+        <td>{{b.flat_no_and_date}}</td> 
+        <td>{{b.bill_id}}</td>
+        <td>{{b.publish_date}}</td>
+        <td>{{b.due_date}}</td>
+        {% for p in profile %}
+        {% if p.user == b.user %}
+        <td><a href="residents/bills/view/{{b.id}}/{{p.id}}">View</a></td>
+    {% endif %}
+  {% endfor %}
+      </tr>
+  
+      {% endfor %}
+  
+    </table>
+
+    {% endblock %}

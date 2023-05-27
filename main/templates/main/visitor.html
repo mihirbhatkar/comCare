@@ -1,0 +1,42 @@
+{% extends "main/header1.html" %} 
+{% block content %}
+{% load static %}
+
+  <body>
+    <main class="layout layout--3">
+      <div class="container">
+
+        {% include 'main/includes/sidepanel.html' %}
+        <div class="roomList__header" style="
+        margin:0; 
+        position: relative;
+        right: 150px;">
+        <div style="margin:0 ;" >
+        <h2 style="text-align: center;">Visitor Log</h2><br>
+        <div class="container" style="width: 600px; margin:0 10% 0;">
+          <table border=1>
+            <tr>
+              <td>Name</td>
+              <td>Phone Number</td>
+              <td>Visiting Flat</td>
+              <td>Date</td>
+              <td>Time</td>
+            </tr>
+            {% for v in visit %}
+            <tr>
+              <td>{{v.visitor_name}}</td>
+              <td>{{v.visitor_phone}}</td>
+              <td>{{v.visiting_flat}}</td>
+              <td>{{v.visiting_date}}</td>
+              <td>{{v.visiting_time}}</td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+{% endblock %}  

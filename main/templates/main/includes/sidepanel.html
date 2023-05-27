@@ -1,0 +1,36 @@
+       
+        {% if user.is_authenticated %}
+       <!-- Side Panel Starts -->
+
+
+        <div class="topics">
+            <div class="topics__header">
+              <h2>Side Panel</h2>
+            </div>
+            <ul class="topics__list">
+              <li>
+                <a href="/" class="active">Home</a>
+              </li>
+              <li>
+                <a href="/searchbill">Bills</a>
+              </li>
+              <li>
+                <a href="/visitor">Visitors log</a>
+              </li>
+              <li>
+                <a href="/noticeboard">Notice Board</a>
+              </li>
+              <li>
+                <a href="/complaint">Complaint Box</a>
+              </li>
+              <li>
+                <a href="/staff">About Us</a>
+              </li>
+              <li>
+                <a href="/notif">Notifications</a>
+              </li>
+            </ul>
+            
+          </div>
+          <!-- Side Panel ends -->
+          {% endif %}

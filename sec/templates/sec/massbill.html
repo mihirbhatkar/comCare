@@ -1,0 +1,16 @@
+{% extends "sec/header.html" %} {% block content %}
+<h3 style="text-align: center;">Mass Billing</h3>
+
+  <form action="" method="post">
+  {% csrf_token %} 
+  <p><label style="font-weight: bolder;" for="id_repairs_maintenance_charges">Repairs maintenance charges:</label> <input class="form-control" type="number" name="repairs_maintenance_charges" required="" id="id_repairs_maintenance_charges"></p>
+  <p><label style="font-weight: bolder;" for="id_society_service_charges">Society service charges:</label> <input class="form-control" type="number" name="society_service_charges" required="" id="id_society_service_charges"></p>
+  <p><label style="font-weight: bolder;" for="id_sinking_fund_charges">Sinking fund charges:</label> <input class="form-control" type="number" name="sinking_fund_charges" required="" id="id_sinking_fund_charges"></p>
+  <p><label style="font-weight: bolder;" for="id_parking_charges">Parking charges:</label> <input class="form-control" type="number" name="parking_charges" required="" id="id_parking_charges"></p>
+  <p><label style="font-weight: bolder;" for="id_charity_charges">Charity charges:</label> <input class="form-control" type="number" name="charity_charges" required="" id="id_charity_charges"></p>
+  <p><label style="font-weight: bolder;" for="id_due_date">Due date:</label> <input class="form-control" type="datetime-local" name="due_date" required="" id="id_due_date"></p>
+ 
+  
+    <button type="submit" class="btn" style="background-color: blanchedalmond; color: brown;">Submit</button><br>
+</form>
+{% endblock %}

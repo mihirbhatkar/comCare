@@ -1,0 +1,16 @@
+{% extends "sec/header.html" %} {% block content %}
+<h1 style="text-align:center;">Post a Notice</h1>
+
+
+    <form role="form" action="" method="post" class="form-group">
+        {% csrf_token %}
+        <!-- {{form.as_p}} -->
+        <p><label for="id_header_notice" style="font-weight: bolder;">Specify the subject:</label> <input class="form-control" type="text" name="header_notice" required="" id="id_header_notice"></p>
+    <p><label for="id_details_notice" style="font-weight: bolder;">Enter the content of the notice:</label> <textarea class="form-control" name="details_notice" cols="40" rows="10" required="" id="id_details_notice"></textarea></p>
+   
+        <button type="submit" class="btn" style="background-color: blanchedalmond; color: brown;">Post</button>
+    </form>
+
+    
+
+{% endblock %}

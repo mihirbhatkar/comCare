@@ -1,0 +1,10 @@
+{% extends "main/header.html" %} {% block content %}
+
+<h1 style="text-align:center;">Post a Notice</h1>
+<form role="form" action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn" style='background-color: blanchedalmond; color: brown;'>Post</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "sec/header.html" %} {% block content %}
+{% csrf_token %}
+<h3 style="text-align:center;">Viewing Bills issued for {{prof.name}}, {{prof.flat_no}}</h3><br><br>
+{% if bill %}
+<table class="table">
+    <tr style="font-weight: bold;">
+      <td>Name</td>
+      <td>Flat Number</td>
+      <td>Publish Date</td>
+      <td>Due Date</td>
+      <td>Status</td>
+      <td> </td>
+      <!-- <td> </td> -->
+    </tr>
+    
+    {% for b in bill reversed %}
+    <tr>
+      <td>{{prof.name}}</td>
+      <td>{{prof.flat_no}}</td>
+      <td>{{b.publish_date}}</td>
+      <td>{{b.due_date}}</td>
+      <td>{% if b.status == 'y' %}Paid{% elif b.status == 'n' %}Not Paid{% endif %}</td>
+      <td><a href="/admin/residents/bills/view/{{b.id}}/{{prof.id}}">View</a></td>
+      <!-- <td><a href="/admin/residents/bills/del/{{b.id}}/">Delete</a></td> -->
+    </tr>
+    {% endfor %}
+
+  </table>
+  <br>
+  
+  
+  {% else %}
+ <h5 style="text-align: center;">No bills have been issued.</h5>
+  {% endif %}
+  <br>
+  <div style="text-align: center;">
+    <a class="btn" style='background-color: blanchedalmond; color: brown;' href="/admin/residents/bills/create/{{prof.id}}">GENERATE NEW BILL</a>
+  </div>
+  {% endblock %}
+  

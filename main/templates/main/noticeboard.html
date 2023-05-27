@@ -1,0 +1,38 @@
+{% extends "main/header.html" %} {% block content %}
+
+<div class="container" style="margin: auto;">
+      <h1 style="text-align:center;">Notice Board</h1><br>
+      
+      {% for notice in noticeboard reversed %}
+      <div
+        class="col s12 m6 l4"
+        style="
+          position: relative;
+          right: 180px;
+          width:200%;
+          margin: 0 20px 20px;
+          background-color: #3f4156;
+          text-align: center;
+          border-radius: 20px;
+          padding: 50px;
+        "
+      >
+            <span class="card-title">{{notice.header_notice}}</span>
+            <p>{{notice.publish_dt}}</p><br>
+            <p>{{notice.details_notice|safe}}</p>
+          
+          </div>
+          {% endfor %}
+</div>
+
+
+{% endblock %}
+<!-- 
+<style media="screen">
+.container{
+  position: relative;
+  top: 100px;
+  left: 100px;
+}
+h1{text-align: center;}
+</style> -->

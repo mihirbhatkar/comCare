@@ -1,0 +1,30 @@
+{% extends "sec/header.html" %} {% block content %}
+<div class="container">
+  <h3 style="text-align:center;">Visitor Log</h3>
+  <table class="table">
+    <tr style="font-weight: bolder;">
+      <td>Name</td>
+      <td>Phone Number</td>
+      <td>Visiting Flat</td>
+      <td>Date</td>
+      <td>Time</td>
+      
+    </tr>
+    {% for v in visit %}
+    <tr>
+      <td>{{v.visitor_name}}</td>
+      <td>{{v.visitor_phone}}</td>
+      <td>{{v.visiting_flat}}</td>
+      <td>{{v.visiting_date}}</td>
+      <td>{{v.visiting_time}}</td>
+      
+    </tr>
+    {% endfor %}
+  </table>
+  <br><br>
+<!-- <div style="text-align: center;">
+  <a class="btn" style='background-color: blanchedalmond; color: brown;' href="{% url 'sec:addvisitor' %}">ADD VISITORS</a>
+</div> -->
+
+
+{% endblock %}

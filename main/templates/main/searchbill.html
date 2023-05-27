@@ -1,0 +1,136 @@
+{% extends "main/header1.html" %} 
+{% block content %}
+{% load static %}
+
+  <body>
+    <main class="layout layout--3">
+      <div class="container">
+        {% include 'main/includes/sidepanel.html' %}
+        <div class="roomList__header" style=" 
+        position: relative;
+        right: 0px;">
+<div style="margin:0; width: 900px">
+  <h1 style="text-align: center"><span>Bill Box</span></h1><br/>
+  <!-- for due bills -->
+  {% if due %}
+  <h1 style="text-align: center">Due Bills</h1><br>
+  <div class="roomList__header" style="">
+   
+    <div class="row">
+      {% for b in due reversed %}
+      <div
+        class="col s12 m6 l4"
+        style="
+          width: 250px;
+          float: left;
+          margin: 0 20px 20px;
+          background-color: #3f4156;
+          text-align: center;
+          border-radius: 20px;
+          padding: 30px;
+        "
+      >
+        <div class="card blue-grey darken-1">
+          <div class="card-content white-text">
+            <span class="card-title">Maintenance Bill</span>
+            <p>Bill ID: {{b.bill_id}}</p>
+            <p>Published Date: {{b.publish_date}}</p>
+            <p>Due Date: {{b.due_date}}</p>
+          </div>
+          <div class="card-action">
+            <a href="{% url 'main:viewbill' b.id %}">View</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+    {% endif %}
+    <!-- end due bills -->
+
+    <!-- for pending bills -->
+    {% if pending %}
+    <h1 style="text-align: center">Pending Bills</h1><br>
+    <div class="roomList__header" style="">
+    
+      <div class="row">
+        {% for b in pending reversed %}
+        <div
+          class="col s12 m6 l4"
+          style="
+          width: 250px;
+          float: left;
+          margin: 0 20px 20px;
+          background-color: #3f4156;
+          text-align: center;
+          border-radius: 20px;
+          padding: 30px;
+          "
+        >
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Maintenance Bill</span>
+              <p>Bill ID: {{b.bill_id}}</p>
+              <p>Published Date: {{b.publish_date}}</p>
+              <p>Due Date: {{b.due_date}}</p>
+            </div>
+            <div class="card-action">
+              <a href="{% url 'main:viewbill' b.id %}">View</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% endif %}
+    <!-- end pending -->
+
+    <!-- show paid bills -->
+    
+    {% if paid %}
+    <h1 style="text-align: center">Paid Bills</h1><br>
+    <div class="roomList__header" style="height:auto;">
+      
+      
+      
+        {% for b in paid reversed %}
+        <div
+          class="col s12 m6 l4"
+          style="
+          width: 250px;
+          float: left;
+          margin: 0 20px 20px;
+          background-color: #3f4156;
+          text-align: center;
+          border-radius: 20px;
+          padding: 30px;
+          "
+        >
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Maintenance Bill</span>
+              <p>Bill ID: {{b.bill_id}}</p>
+              <p>Published Date: {{b.publish_date}}</p>
+              <p>Due Date: {{b.due_date}}</p>
+              <p>Payment Time: {{b.payment_time}}</p>
+            </div>
+            <div class="card-action">
+              <a href="{% url 'main:viewbill' b.id %}">View</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+    
+     
+    </div>
+
+    {% endif %}
+    <!-- end paid bills -->
+  
+</div></main>
+<script src="script.js"></script>
+</body>
+</html>
+
+{% endblock %}  

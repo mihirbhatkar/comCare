@@ -1,0 +1,28 @@
+{% extends "sec/header.html" %} {% block content %}
+<!-- <form action="" method="post">
+    {% csrf_token %} {{form.as_p}} <br>
+    <button type="submit" class="btn" style='background-color: blanchedalmond; color: brown;'>Submit</button>
+</form> -->
+<h2 style="text-align: center;">Register a New Resident</h2>
+<form action="" method="post" class="form-group" enctype="multipart/form-data">
+    {% csrf_token %} 
+<p><label for="id_username">Username:</label> <input type="text"  name="username" class="form-control" maxlength="150" autofocus="" required="" id="id_username"> <span class="helptext">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</span></p>
+<p><label for="id_email">Email:</label> <input type="email" name="email" class="form-control" required="" id="id_email"></p>
+<p><label for="id_password1">Password:</label> <input type="password" name="password1" class="form-control" autocomplete="new-password" required="" id="id_password1"> <span class="helptext"></span></p><ul><li>Your password can’t be too similar to your other personal information.</li><li>Your password must contain at least 8 characters.</li><li>Your password can’t be a commonly used password.</li><li>Your password can’t be entirely numeric.</li></ul><p></p>
+<p><label for="id_password2">Password confirmation:</label> <input type="password" class="form-control" name="password2" autocomplete="new-password" required="" id="id_password2"> <span class="helptext">Enter the same password as before, for verification.</span></p>
+<p><label for="id_name">Name:</label> <input type="text" name="name" maxlength="100" class="form-control" required="" id="id_name"></p>
+<p><label for="id_age">Age:</label> <input type="number" name="age" required="" class="form-control" id="id_age"></p>
+<p><label for="id_photo">Photo:</label> <input class="form-control" type="file" name="photo" accept="image/*" required="" id="id_photo"></p>
+<p><label for="id_flat_no">Flat no:</label> <input type="text" name="flat_no" class="form-control" maxlength="10" required="" id="id_flat_no"></p>
+<p><label for="id_phone_number">Phone number:</label> <input type="number" class="form-control" name="phone_number" required="" id="id_phone_number"></p>
+<p><label for="id_status">Status:</label> <select class="form-control" name="status" id="id_status">
+    <option value="r">Resident</option>
+  
+    <option value="s">Staff</option>
+
+    <option value="a">Superuser</option>
+  
+  </select></p> <br>
+    <button type="submit" class="btn" style="background-color: blanchedalmond; color: brown;">Submit</button>
+</form><br>
+{% endblock %}

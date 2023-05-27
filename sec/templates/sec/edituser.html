@@ -1,0 +1,36 @@
+{% extends "sec/header.html" %} {% block content %}
+<!-- <form action="" method="post">
+  {% csrf_token %} {{form.as_p}} <br>
+  <button type="submit" class="btn" style='background-color: blanchedalmond; color: brown;'>Submit</button>
+</form> -->
+<h3 style="text-align: center;">Edit {{userp.name}}'s Details</h3>
+
+<form action="" method="post" enctype="multipart/form-data">
+  {% csrf_token %} 
+  <img src="{{userp.photo.url}}" alt="" width="100" height="100" style="position: relative;left: 450; border-radius: 50%; object-fit: cover;">
+  <p><label for="id_photo">Change Image:</label> <input class="form-control" type="file" name="photo" accept="image/*" id="id_photo"></p>
+  <p><label style="font-weight: bolder;" for="id_name">Name:</label> <input class="form-control" value="{{userp.name}}" type="text" name="name" required="" id="id_name"></p>
+<p><label style="font-weight: bolder;" for="id_email">Email:</label> <input class="form-control" value="{{userp.email}}" type="email" name="email" required="" id="id_email"></p>
+<p><label style="font-weight: bolder;" for="id_age">Age:</label> <input class="form-control" value="{{userp.age}}" type="number" name="age" required="" id="id_age"></p>
+<p><label style="font-weight: bolder;" for="id_flat_no">Flat no:</label> <input class="form-control" value="{{userp.flat_no}}" type="text" name="flat_no" required="" id="id_flat_no"></p>
+<p><label style="font-weight: bolder;" for="id_phone_number">Phone number:</label> <input value="{{userp.phone_number}}" class="form-control" type="number" name="phone_number" required="" id="id_phone_number"></p>
+{% if user.is_superuser %}
+<p><label style="font-weight: bolder;" for="id_status">Status:</label> <select class="form-control" name="status" id="id_status">
+  <option value="r">Resident</option>
+
+  <option value="s">Staff</option>
+
+  <option value="a">Admin</option>
+
+</select></p>
+{% endif %} <br>
+<div style="text-align: center;">
+  <button type="submit" class="btn" style="background-color: blanchedalmond; color: brown;">Save Changes</button>    
+<a class="btn" style='background-color: blanchedalmond; color: brown;' href="{% url 'sec:residents' %}">Back</a> <br>
+</div>
+</form>
+<div style="text-align: center;">
+  <a class="btn" style='background-color: blanchedalmond; color: brown;' href="/admin/residents/bills/{{userp.id}}">{{userp.name}}'s' bills</a>
+</div>
+<br>
+{% endblock %}

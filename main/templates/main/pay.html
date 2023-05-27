@@ -1,0 +1,139 @@
+{% extends "main/header1.html" %} 
+{% block content %}
+{% load static %}
+
+<body>
+  <main class="create-room layout">
+    <div class="container">
+      <div class="layout__box" style="min-height: 33rem;">
+        <div class="layout__boxHeader">
+          <div class="layout__boxTitle">
+            <a href="/searchbill">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                <title>arrow-left</title>
+                <path
+                  d="M13.723 2.286l-13.723 13.714 13.719 13.714 1.616-1.611-10.96-10.96h27.625v-2.286h-27.625l10.965-10.965-1.616-1.607z">
+                </path>
+              </svg>
+            </a>
+            <h3>Payment Gateway</h3>
+          </div>
+        </div>
+        <div class="layout__body">
+            <form class="text-center border border-light p-5" style="text-align:center;"  method="POST">
+                {% csrf_token %}
+                <br><br>
+                <h1><p class="h3 mb-3"><i class="fas fa-coffee"></i> Paying the amount:  Rs.{{final}}</p></h1>
+                <h1><p class="h3 mb-3"><i class="fas fa-coffee"></i> to E-housing Society.</p></h1>
+                <br>
+                {% csrf_token %}
+                <button class="btn btn--main btn--pill" id="pay-btn">Proceed</button>
+                <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+                    <script>
+                            var options = {
+                            'key': "rzp_test_CK8AWrEy84pP7i",
+                            'amount': "{{finalP}}",
+                            'currency': "INR",
+        
+                            'name': "E-Housing Society Bill",
+        
+                            'order_id': "{{ order_id }}",
+                            'callback_url': "http://127.0.0.1:8000/",
+                            'handler': function(response)
+                            {
+                                if (typeof response.razorpay_payment_id == 'undefined' ||  response.razorpay_payment_id < 1) 
+                                    {
+                                    redirect_url = '/fail';
+                                    } 
+                                    else 
+                                    {
+                                    redirect_url = '/psuccess/{{idbill}}';
+                                    }
+                                    location.href = redirect_url;
+                            }
+                            
+                            };
+                            
+                            var rzp1 = new Razorpay(options);
+                            
+                            // add event listener to the payment button.
+                            document.getElementById("pay-btn").onclick = function (e) {
+                            rzp1.open();
+                            e.preventDefault();
+                            };
+                            
+                    </script>
+            </form>
+        </div>
+      </div>
+    </div>
+  </main>
+  {% endblock %}
+
+{% comment %} 
+{% block content %}
+
+
+<head>
+    <style>
+        .center {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<div class="center">
+
+    <form class="text-center border border-light p-5"  method="POST">
+        {% csrf_token %}
+
+        <h1><p class="h3 mb-3"><i class="fas fa-coffee"></i> Pay {{final}}</p></h1>
+        <!-- <p class="mb-3">Thanks for the extra donation of ₹20</p> -->
+
+        {% csrf_token %}
+        <button id="pay-btn">Proceed</button>
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+            <script>
+                    var options = {
+                    'key': "rzp_test_CK8AWrEy84pP7i",
+                    'amount': "{{finalP}}",
+                    'currency': "INR",
+
+                    'name': "E-Housing Society Bill",
+
+                    'order_id': "{{ order_id }}",
+                    'callback_url': "http://127.0.0.1:8000/",
+                    'handler': function(response)
+                    {
+                        if (typeof response.razorpay_payment_id == 'undefined' ||  response.razorpay_payment_id < 1) 
+                            {
+                            redirect_url = '/fail';
+                            } 
+                            else 
+                            {
+                            redirect_url = '/psuccess/{{idbill}}';
+                            }
+                            location.href = redirect_url;
+                    }
+                    
+                    };
+                    
+                    var rzp1 = new Razorpay(options);
+                    
+                    // add event listener to the payment button.
+                    document.getElementById("pay-btn").onclick = function (e) {
+                    rzp1.open();
+                    e.preventDefault();
+                    };
+                    
+            </script>
+    </form>
+
+</div>
+
+
+</div>
+{% endblock %} {% endcomment %}

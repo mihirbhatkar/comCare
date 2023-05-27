@@ -1,0 +1,26 @@
+{% extends "sec/header.html" %} {% block content %}
+<br>
+<h4 style="text-align:center;">Resident's Complaints</h4>
+<br>
+<div class="container">
+  <table class="table">
+    <tr style="font-weight: bolder;">
+      <td>Name</td>
+      <td>Flat Number</td>
+      <td>Subject</td>
+      <td>Published On</td>
+      <td>Status</td>
+      <td></td>
+    </tr>
+    {% for v in comp %}
+    <tr>
+      <td>{{v.name}}</td>
+      <td>{{v.flat_no}}</td>
+      <td>{{v.subject}}</td>
+      <td>{{v.date}}</td>
+      <td>{% if v.status == 'y' %}Resolved{% else %}Not Resolved{% endif %}</td>
+      <td><a href="/admin/complaints/{{v.id}}">View</a></td>
+    </tr>
+    {% endfor %} 
+  </table><br><br>
+{% endblock %}

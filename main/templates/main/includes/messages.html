@@ -1,0 +1,18 @@
+{% load static %}
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'toastr/toastr.min.css' %}" media="all">
+<script type="text/javascript" src="{% static 'toastr/toastr.min.js' %}"></script> 
+{% if messages %}
+    {% for message in messages %}
+        {% if message.tags == 'success'%}
+        <script type=text/javascript>toastr.{{message.tags}}('{{message}}')</script>
+        {% elif message.tags == 'info'%}
+            <script type=text/javascript>toastr.{{message.tags}}('{{message}}')</script>
+        {% elif message.tags == 'warning'%}
+        <script type=text/javascript>toastr.{{message.tags}}('{{message}}')</script>
+        {% elif message.tags == 'error'%}
+
+            <script type=text/javascript>toastr.{{message.tags}}('{{message}}')</script>
+        {% endif %}
+    {% endfor %}
+{% endif %}

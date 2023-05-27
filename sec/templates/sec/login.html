@@ -1,0 +1,52 @@
+<html><head>
+    
+    <link rel="stylesheet" href="/static/tiny/css/prism">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="/static/main/css/materialize.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+          $('select').formSelect();
+      })
+    </script>
+
+</head>
+
+<body>
+    
+<nav>
+    <div class="nav-wrapper #1976d2 blue darken-2">
+        <a href="" class="brand-logo">E-Housing Society</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            
+            
+              <li><a href="/login"></a></li>
+            
+        </ul>
+    </div>
+</nav>
+
+<style media="screen">
+  a.brand-logo{
+    margin-left: 15px;
+  }
+</style>
+
+    
+
+    
+    <br><br>
+    <div class="container">
+<h1 style="text-align: center;">ADMIN LOGIN</h1>
+<form action="" method="post">
+    {% csrf_token %} <p><label for="id_username" class="active">Username:</label> <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username"></p>
+<p><label for="id_password" class="active">Password:</label> <input type="password" name="password" autocomplete="current-password" required="" id="id_password"></p> <br>
+    <button type="submit" class="btn" style="background-color: blanchedalmond; color: brown;">Login</button>
+</form>
+
+ </div>
+
+
+<script src="/static/tinymce/js/prism.js"></script>
+</body></html>

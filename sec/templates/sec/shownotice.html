@@ -1,0 +1,27 @@
+{% extends "sec/header.html" %} {% block content %}
+{% csrf_token %}
+<br><br>
+<div class="card">
+    <div class="card-body">
+       <h5>Notice Heading: {{notice.header_notice}}</h5> 
+    </div>
+  </div><br>
+  <div class="card">
+    <div class="card-body">
+        <h5>Content:</h5> <br> {{notice.details_notice}}
+    </div>
+  </div><br>
+  <div class="card">
+    <div class="card-body">
+        <h6>Status:</h6>{% if notice.showflag == 'y' %} Shown {% else %} Hidden {% endif %}
+    </div>
+  </div><br>
+  <div>
+    <a class="btn" style='background-color: blanchedalmond; color: brown;' href="{% url 'sec:notices' %}">Back</a> <br>
+  </div>
+  <br>
+  <div>
+    <a class="btn" style='background-color: rgb(59, 105, 255); color: rgb(255, 255, 255);' href="/admin/notices/editnotice/{{notice.id}}">Edit Notice</a> <br><br>
+  </div>
+
+{% endblock %}

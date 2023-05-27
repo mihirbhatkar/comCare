@@ -1,0 +1,18 @@
+{% extends "sec/header.html" %} {% block content %}
+<!-- <h3 style="text-align:center;">Bills</h3><br> -->
+<div class="navbar-nav w-100">
+
+    <a href="{% url 'sec:paidbills' %}" class="nav-item nav-link" style="font-size: 40px;text-align: center; border-radius: 5%; background-color: azure;" >PAID BILLS</a><br />
+  
+  
+  
+  
+  
+  
+  <a href="{% url 'sec:latebills' %}" class="nav-item nav-link" style="font-size: 40px;text-align: center; border-radius: 5%; background-color: azure;">PENDING BILLS</a><br />
+  <a href="{% url 'sec:duebills' %}" class="nav-item nav-link" style="font-size: 40px;text-align: center; border-radius: 5%; background-color: azure;">DUE BILLS</a>
+  <br />
+</div>
+
+
+{% endblock %}

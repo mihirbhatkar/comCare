@@ -1,0 +1,28 @@
+{% extends "sec/header.html" %} {% block content %}
+<div class="container">
+  <br>
+<h4 style="text-align:center;">Notices Posted on the Noticeboard</h4>
+<br>
+  <table class="table">
+    <tr>
+      <td style="font-weight: bold;">Subject</td>
+      <td style="font-weight: bold;">Publish Date and Time</td>
+      <td style="font-weight: bold;">Status</td>
+      <td></td>
+      <!-- <td></td> -->
+    </tr>
+    {% for v in notice reversed %}
+    <tr>
+      <td>{{v.header_notice}}</td>
+      <td>{{v.publish_dt}}</td>
+      <td>{% if v.showflag == 'y' %} Shown {% else %} Hidden {% endif %}</td>
+      <td><a href="/admin/notices/n/{{v.id}}/">View</a></td>
+      <!-- <td><a href="{% url 'sec:delnotice' v.id %}">Delete</a></td> -->
+    </tr>
+    {% endfor %} 
+  </table><br><br>
+  <!-- <div style="text-align: center;">
+    <a class="btn" style='background-color: blanchedalmond; color: brown;' href="{% url 'sec:amakenotice' %}">ADD NOTICE</a>
+  </div> -->
+
+{% endblock %}
