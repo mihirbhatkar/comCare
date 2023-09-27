@@ -1,28 +1,30 @@
 <head>
-    {% load static %}
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
-    <link rel="stylesheet" href="{% static 'main/css/style.css' %}" />
-    <title>E-Housing Society: the one and only for you</title>
-
+	{% load static %}
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link
+		rel="shortcut icon"
+		href="{% static 'images/favicon.ico' %}"
+		type="image/x-icon"
+	/>
+	<link rel="stylesheet" href="{% static 'main/css/style.css' %}" />
+	<title>grooveCare</title>
 </head>
 
 <body>
+	{% include 'main/includes/messages.html' %} 
     {% include 'main/includes/nav.html' %}
-    {% include 'main/includes/messages.html' %}
-    <br >
-    <div class="container">
- 
-            <main class="layout layout--3">
-              <div class="container">
-                {% include 'main/includes/sidepanel.html' %}
-        {% block content %} {% endblock %}
-            </div>
-            </main>
-         
-    </div>
+
+	<br />
+	<div class="container">
+		<main class="layout layout--3">
+			<div class="container">
+				{% include 'main/includes/sidepanel.html' %} {% block content %}
+				{% endblock %}
+			</div>
+		</main>
+	</div>
 </body>
 
 <script src="{% static 'script/script.js' %}"></script>

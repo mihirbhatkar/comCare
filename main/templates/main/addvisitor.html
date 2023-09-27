@@ -1,65 +1,102 @@
-<html><head>
+<html>
+	<head>
+		<link rel="stylesheet" href="/static/tiny/css/prism" />
+		<!-- Compiled and minified CSS -->
+		<link rel="stylesheet" href="/static/main/css/materialize.css" />
+		<!-- Compiled and minified JavaScript -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function () {
+				$("select").formSelect();
+				$(".datepicker").datepicker();
+			});
+		</script>
+	</head>
 
-    <link rel="stylesheet" href="/static/tiny/css/prism">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="/static/main/css/materialize.css">
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function(){
-          $('select').formSelect();
-          $('.datepicker').datepicker();
-      })
-    </script>
+	<body>
+		<nav>
+			<div class="nav-wrapper #1976d2 blue darken-2">
+				<a href="/" class="brand-logo">grooveCare</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="/">Home</a></li>
 
-</head>
+					<li><a href="/makenotice">Make Notice</a></li>
+					<li><a href="/addvisitor">Add Visitors</a></li>
+					<li><a href="/visitor">Visitors Log</a></li>
 
-<body>
+					<li><a href="/noticeboard">Notice Board</a></li>
 
+					<li><a href="/logout">Logout</a></li>
+				</ul>
+			</div>
+		</nav>
+		<style media="screen">
+			a.brand-logo {
+				margin-left: 15px;
+			}
+		</style>
 
-<nav>
-    <div class="nav-wrapper #1976d2 blue darken-2">
-        <a href="/" class="brand-logo">E-House Care</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="/">Home</a></li>
-
-
-
-                <li><a href="/makenotice">Make Notice</a></li>
-                <li><a href="/addvisitor">Add Visitors</a></li>
-                <li><a href="/visitor">Visitors Log</a></li>
-
-                <li><a href="/noticeboard">Notice Board</a></li>
-
-                <li><a href="/logout">Logout</a></li>
-
-
-        </ul>
-    </div>
-</nav>
-<style media="screen">
-  a.brand-logo{
-    margin-left: 15px;
-  }
-</style>
-
-
-
-    <br><br>
-    <div class="container">
-<h1 style="text-align:center;">Add Visitors</h1>
-<form role="form" action="" method="post">
-    {% csrf_token %}
-    <p><label for="id_visitor_name">Visitor name:</label> <input type="text" name="visitor_name" maxlength="100" required="" id="id_visitor_name"></p>
-<p><label for="id_visitor_phone">Visitor phone:</label> <input type="number" name="visitor_phone" required="" id="id_visitor_phone"></p>
-<p><label for="id_visiting_flat">Visiting flat:</label> <input type="text" name="visiting_flat" maxlength="100" required="" id="id_visiting_flat"></p>
-<p><label for="id_visiting_date" >Visiting date:</label> <input type="date" class="datepicker" name="visiting_date" required="" id="id_visiting_date"></p>
-<p><label for="id_visiting_time">Visiting time:</label> <input type="time" name="visiting_time" required="" id="id_visiting_time"></p>
-    <button type="submit" class="btn" style="background-color: blanchedalmond; color: brown;">Submit</button>
-</form>
-
-</div>
-
-
-
-</body></html>
+		<br /><br />
+		<div class="container">
+			<h1 style="text-align: center">Add Visitors</h1>
+			<form role="form" action="" method="post">
+				{% csrf_token %}
+				<p>
+					<label for="id_visitor_name">Visitor name:</label>
+					<input
+						type="text"
+						name="visitor_name"
+						maxlength="100"
+						required=""
+						id="id_visitor_name"
+					/>
+				</p>
+				<p>
+					<label for="id_visitor_phone">Visitor phone:</label>
+					<input
+						type="number"
+						name="visitor_phone"
+						required=""
+						id="id_visitor_phone"
+					/>
+				</p>
+				<p>
+					<label for="id_visiting_flat">Visiting flat:</label>
+					<input
+						type="text"
+						name="visiting_flat"
+						maxlength="100"
+						required=""
+						id="id_visiting_flat"
+					/>
+				</p>
+				<p>
+					<label for="id_visiting_date">Visiting date:</label>
+					<input
+						type="date"
+						class="datepicker"
+						name="visiting_date"
+						required=""
+						id="id_visiting_date"
+					/>
+				</p>
+				<p>
+					<label for="id_visiting_time">Visiting time:</label>
+					<input
+						type="time"
+						name="visiting_time"
+						required=""
+						id="id_visiting_time"
+					/>
+				</p>
+				<button
+					type="submit"
+					class="btn"
+					style="background-color: blanchedalmond; color: brown"
+				>
+					Submit
+				</button>
+			</form>
+		</div>
+	</body>
+</html>
